@@ -1,4 +1,4 @@
-package com.tsystems.ecrono.controllers.racecontrollers;
+package com.tsystems.ecrono.controller.races;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import dto.Race;
+import com.tsystems.ecrono.dto.Race;
 
 @RestController
 @RequestMapping("races")

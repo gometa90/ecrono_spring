@@ -1,11 +1,11 @@
-package dorsalcontroller;
+package com.tsystems.ecrono.controller.dorsal;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import dto.Dorsal;
+import com.tsystems.ecrono.dto.Dorsal;
 
 @RestController
 @RequestMapping("dorsals")
