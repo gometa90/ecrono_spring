@@ -8,4 +8,6 @@ import com.tsystems.ecrono.domain.RunnerEntity;
 public interface DorsalRepository extends JpaRepository<DorsalEntity, Long> {
 
     DorsalEntity findByRaceIdAndRunner(Long raceId, RunnerEntity runner);
+
+    void deleteByRaceIdAndRunner(Long raceId, RunnerEntity runner);
 }

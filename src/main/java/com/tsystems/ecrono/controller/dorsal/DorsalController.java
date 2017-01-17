@@ -1,21 +1,29 @@
 package com.tsystems.ecrono.controller.dorsal;
 
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tsystems.ecrono.dto.Dorsal;
+import com.tsystems.ecrono.dto.create.CreateDorsal;
+import com.tsystems.ecrono.usercase.CrudDorsalUserCase;
 
 @RestController
 @RequestMapping("dorsals")
 public class DorsalController {
 
-    @RequestMapping(method = RequestMethod.POST)
-    public Dorsal createDorsal(@PathVariable("raceId") Long raceId, @PathVariable("runnerId") Long runnerId) {
+    private final CrudDorsalUserCase crudDorsalUserCase;
 
-	return null;
-	// throw new IllegalArgumentException("Not implemented yet");
+    public DorsalController(CrudDorsalUserCase crudDorsalUserCase) {
+	super();
+	this.crudDorsalUserCase = crudDorsalUserCase;
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public Dorsal createDorsal(@RequestBody CreateDorsal createDorsal) {
+
+	return crudDorsalUserCase.createDorsal(createDorsal);
     }
 
     @RequestMapping(value = "{id:\\d+}", method = RequestMethod.DELETE)

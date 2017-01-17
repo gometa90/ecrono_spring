@@ -27,7 +27,7 @@ public class RunnerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", columnDefinition = "INT")
-    private Long id;
+    public Long id;
     @Column(name = "full_name")
     private String fullName;
 

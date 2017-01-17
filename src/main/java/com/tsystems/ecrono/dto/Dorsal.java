@@ -1,11 +1,10 @@
 package com.tsystems.ecrono.dto;
 
-import com.tsystems.ecrono.domain.RunnerEntity;
-
 public class Dorsal {
 
     private Long raceId;
-    private RunnerEntity runner;
+    private Long runnerId;
+    private String chipCode;
 
     public Long getRaceId() {
 	return raceId;
@@ -15,12 +14,20 @@ public class Dorsal {
 	this.raceId = raceId;
     }
 
-    public RunnerEntity getRunner() {
-	return runner;
+    public Long getRunnerId() {
+	return runnerId;
     }
 
-    public void setRunner(RunnerEntity runner) {
-	this.runner = runner;
+    public void setRunnerId(Long runnerId) {
+	this.runnerId = runnerId;
+    }
+
+    public String getChipCode() {
+	return chipCode;
+    }
+
+    public void setChipCode(String chipCode) {
+	this.chipCode = chipCode;
     }
 
 }

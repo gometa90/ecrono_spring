@@ -1,26 +1,38 @@
 package com.tsystems.ecrono.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.tsystems.ecrono.domain.DorsalEntity;
+import com.tsystems.ecrono.domain.RunnerEntity;
 import com.tsystems.ecrono.dto.Dorsal;
 import com.tsystems.ecrono.dto.create.CreateDorsal;
 import com.tsystems.ecrono.dto.update.UpdateDorsal;
 
+@Component
 public class DorsalMapper {
 
-    public Dorsal toDorsal(DorsalEntity dorsalToReturn) {
-	Dorsal target = new Dorsal();
-	target.setRaceId(dorsalToReturn.getRaceId());
-	target.setRunner(dorsalToReturn.getRunner());
-	;
+    public DorsalEntity toDorsalEntity(CreateDorsal source) {
+	DorsalEntity target = new DorsalEntity();
+	target.setRaceId(source.getRaceId());
+	target.setChipCode(source.getChipCode());
 
+	RunnerEntity runner = new RunnerEntity();
+	runner.setId(source.getRunnerId());
+	target.setRunner(runner);
 	return target;
     }
 
-    public DorsalEntity toDorsalEntity(CreateDorsal createDorsal) {
-	DorsalEntity dorsalToCreate = new DorsalEntity();
-	dorsalToCreate.setRaceId(createDorsal.getRaceId());
-	dorsalToCreate.setRunner(createDorsal.getRunner());
-	return dorsalToCreate;
+    public Dorsal toDorsal(DorsalEntity source) {
+	Dorsal target = new Dorsal();
+	target.setRaceId(source.getRaceId());
+	target.setChipCode(source.getChipCode());
+
+	// RunnerEntity runner = new RunnerEntity();
+	// runner.setId(source.getRunnerId());
+
+	target.setRunnerId(source.getRunner().id);
+
+	return target;
     }
 
     public DorsalEntity updateDorsalEntity(UpdateDorsal updateDorsal, DorsalEntity dorsalToCreate) {
