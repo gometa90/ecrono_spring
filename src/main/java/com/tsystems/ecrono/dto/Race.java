@@ -7,7 +7,8 @@ public class Race {
     private Long id;
     private String name;
     private RaceType type;
-    private String init_time;
+    private String initTime;
+    private int distanceInMeters;
 
     public Long getId() {
 	return id;
@@ -33,12 +34,20 @@ public class Race {
 	this.type = type;
     }
 
-    public String getInit_time() {
-	return init_time;
+    public String getInitTime() {
+	return initTime;
     }
 
-    public void setInit_time(String formatDate) {
-	this.init_time = formatDate;
+    public void setInitTime(String formatDate) {
+	this.initTime = formatDate;
+    }
+
+    public int getDistanceInMeters() {
+	return distanceInMeters;
+    }
+
+    public void setDistanceInMeters(int distanceInMeters) {
+	this.distanceInMeters = distanceInMeters;
     }
 
 }
