@@ -1,8 +1,8 @@
-package com.tsystems.ecrono.dto;
+package com.tsystems.ecrono.dto.create;
 
 import com.tsystems.ecrono.domain.RunnerEntity;
 
-public class Dorsal {
+public class CreateDorsal {
 
     private Long raceId;
     private RunnerEntity runner;
@@ -22,5 +22,4 @@ public class Dorsal {
     public void setRunner(RunnerEntity runner) {
 	this.runner = runner;
     }
-
 }

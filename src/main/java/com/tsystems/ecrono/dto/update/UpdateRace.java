@@ -1,21 +1,14 @@
-package com.tsystems.ecrono.dto;
+package com.tsystems.ecrono.dto.update;
+
+import java.time.Instant;
 
 import com.tsystems.ecrono.domain.component.RaceType;
 
-public class Race {
+public class UpdateRace {
 
-    private Long id;
     private String name;
     private RaceType type;
-    private String init_time;
-
-    public Long getId() {
-	return id;
-    }
-
-    public void setId(Long id) {
-	this.id = id;
-    }
+    private Instant initTime;
 
     public String getName() {
 	return name;
@@ -33,12 +26,12 @@ public class Race {
 	this.type = type;
     }
 
-    public String getInit_time() {
-	return init_time;
+    public Instant getInitTime() {
+	return initTime;
     }
 
-    public void setInit_time(String formatDate) {
-	this.init_time = formatDate;
+    public void setInitTime(Instant initTime) {
+	this.initTime = initTime;
     }
 
 }

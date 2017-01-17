@@ -12,8 +12,10 @@ import com.tsystems.ecrono.dto.Dorsal;
 public class DorsalController {
 
     @RequestMapping(method = RequestMethod.POST)
-    public Dorsal createDorsal(@PathVariable("id") Long raceId, @PathVariable("id") Long runnerId) {
-	throw new IllegalArgumentException("Not implemented yet");
+    public Dorsal createDorsal(@PathVariable("raceId") Long raceId, @PathVariable("runnerId") Long runnerId) {
+
+	return null;
+	// throw new IllegalArgumentException("Not implemented yet");
     }
 
     @RequestMapping(value = "{id:\\d+}", method = RequestMethod.DELETE)

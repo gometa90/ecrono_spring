@@ -2,6 +2,6 @@ package com.tsystems.ecrono.domain.component;
 
 public enum RaceType {
 
-    SPRINT, MARATHON, HAL_MARATHON, IRON_MAN;
+    SPRINT, MARATHON, HALF_MARATHON, IRON_MAN;
 
 }
