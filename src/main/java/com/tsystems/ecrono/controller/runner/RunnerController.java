@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tsystems.ecrono.dto.Runner;
@@ -27,8 +28,14 @@ public class RunnerController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Runner> getRunners() {
-	return crudRunnerUserCase.findAll();
+    public List<Runner> getRunners(@RequestParam(value = "filtername", required = false) String filterName) {
+	if (filterName == null) {
+	    return crudRunnerUserCase.findAll();
+	} else {
+	    return crudRunnerUserCase.findBySubString(filterName);
+
+	}
+
     }
 
     @RequestMapping(value = "{id:\\d+}", method = RequestMethod.GET)

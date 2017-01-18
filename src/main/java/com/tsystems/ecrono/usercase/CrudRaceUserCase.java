@@ -1,5 +1,6 @@
 package com.tsystems.ecrono.usercase;
 
+import java.time.Instant;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tsystems.ecrono.domain.RaceEntity;
+import com.tsystems.ecrono.domain.component.RaceType;
 import com.tsystems.ecrono.dto.Race;
 import com.tsystems.ecrono.dto.create.CreateRace;
 import com.tsystems.ecrono.dto.update.UpdateRace;
@@ -64,4 +66,16 @@ public class CrudRaceUserCase {
     public void delete(Long raceId) {
 	raceRepository.delete(raceId);
     }
+
+    public List<Race> getRaceByTypeAndPreviousDate(RaceType raceType, Instant previousDate) {
+
+	List<RaceEntity> listRaceEntities = raceRepository.findByTypeAndInitTimeBefore(raceType, previousDate);
+	List<Race> listToReturn = new LinkedList<>();
+	for (RaceEntity race : listRaceEntities) {
+	    listToReturn.add(mapper.toRace(race));
+	}
+	return listToReturn;
+
+    }
+
 }

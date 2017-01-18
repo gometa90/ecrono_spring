@@ -1,6 +1,6 @@
 package com.tsystems.ecrono.domain;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -37,8 +38,9 @@ public class DorsalEntity {
     @Column(name = "chip_code", nullable = false)
     private String chipCode;
 
+    @OrderBy("time_stamp ASC")
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "dorsal")
-    private List<TimeStampEntity> timeStamp;
+    private Set<TimeStampEntity> timeStamp;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "runner_id")

@@ -1,5 +1,6 @@
 package com.tsystems.ecrono.controller.races;
 
+import java.time.Instant;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +8,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tsystems.ecrono.domain.component.RaceType;
 import com.tsystems.ecrono.dto.Race;
 import com.tsystems.ecrono.dto.create.CreateRace;
 import com.tsystems.ecrono.dto.update.UpdateRace;
@@ -26,7 +29,7 @@ public class RaceController {
 	this.crudRaceUserCase = crudRaceUserCase;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "all", method = RequestMethod.GET)
     public List<Race> getRaces() {
 
 	return crudRaceUserCase.findAll();
@@ -53,4 +56,14 @@ public class RaceController {
     public void deleteRace(@PathVariable("id") Long raceId) {
 	crudRaceUserCase.delete(raceId);
     }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public List<Race> getRacesByTypeAndPreviousDate(
+	    @RequestParam(value = "racetype", required = false) RaceType raceType,
+	    @RequestParam(value = "date") Instant previousDate) {
+
+	return crudRaceUserCase.getRaceByTypeAndPreviousDate(raceType, previousDate);
+
+    }
+
 }

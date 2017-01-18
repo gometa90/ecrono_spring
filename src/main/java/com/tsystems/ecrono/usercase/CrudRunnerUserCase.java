@@ -65,4 +65,16 @@ public class CrudRunnerUserCase {
 	runnerRepository.delete(runnerId);
     }
 
+    // Método que lista los runners que contengan cierta cadena en su nombre
+    public List<Runner> findBySubString(String subString) {
+	List<RunnerEntity> runnerList = runnerRepository.findByFullNameContains(subString);
+	List<Runner> listToReturn = new LinkedList<>();
+	for (RunnerEntity runner : runnerList) {
+
+	    listToReturn.add(mapper.toRunner(runner));
+
+	}
+	return listToReturn;
+    }
+
 }

@@ -42,7 +42,7 @@ public class RaceEntity {
     @Column(name = "type")
     private RaceType type;
     @Column(name = "init_time")
-    private Instant init_time;
+    private Instant initTime;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "dorsals", joinColumns = @JoinColumn(name = "race_Id"), inverseJoinColumns = @JoinColumn(name = "runner_id"))

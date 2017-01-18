@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import com.tsystems.ecrono.domain.DorsalEntity;
 import com.tsystems.ecrono.domain.RunnerEntity;
+import com.tsystems.ecrono.dto.Competitor;
 import com.tsystems.ecrono.dto.Dorsal;
 import com.tsystems.ecrono.dto.create.CreateDorsal;
 import com.tsystems.ecrono.dto.update.UpdateDorsal;
@@ -39,5 +40,13 @@ public class DorsalMapper {
 	dorsalToCreate.setRaceId(updateDorsal.getRaceId());
 	dorsalToCreate.setRunner(updateDorsal.getRunner());
 	return dorsalToCreate;
+    }
+
+    public Competitor toCompetitor(DorsalEntity dorsalEntity) {
+	Competitor competitor = new Competitor();
+	competitor.setDorsalNumber(dorsalEntity.getDorsalNumber());
+	competitor.setIdCorredor(dorsalEntity.getRunner().getId());
+	competitor.setNombreCorredor(dorsalEntity.getRunner().getFullName());
+	return competitor;
     }
 }

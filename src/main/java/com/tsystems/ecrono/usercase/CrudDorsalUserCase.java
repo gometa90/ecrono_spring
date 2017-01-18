@@ -39,6 +39,8 @@ public class CrudDorsalUserCase {
 
     }
 
-    // TODO: Delete
+    public void delete(Long raceId, Long runnerId) {
+	dorsalRepository.deleteByRaceIdAndRunner(raceId, runnerId);
+    }
 
 }

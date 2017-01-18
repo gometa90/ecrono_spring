@@ -25,7 +25,7 @@ public class RaceMapper {
 	target.setType(raceToReturn.getType());
 	target.setDistanceInMeters(typeToMeters(raceToReturn.getType()));
 
-	String formatDate = formatter.format(raceToReturn.getInit_time());
+	String formatDate = formatter.format(raceToReturn.getInitTime());
 	target.setInitTime(formatDate);
 	return target;
     }
@@ -34,14 +34,14 @@ public class RaceMapper {
 	RaceEntity raceToCreate = new RaceEntity();
 	raceToCreate.setName(createRace.getName());
 	raceToCreate.setType(createRace.getType());
-	raceToCreate.setInit_time(createRace.getInitTime());
+	raceToCreate.setInitTime(createRace.getInitTime());
 	return raceToCreate;
     }
 
     public RaceEntity updateRaceEntity(UpdateRace updateRace, RaceEntity raceToCreate) {
 	raceToCreate.setName(updateRace.getName());
 	raceToCreate.setType(updateRace.getType());
-	raceToCreate.setInit_time(updateRace.getInitTime());
+	raceToCreate.setInitTime(updateRace.getInitTime());
 	return raceToCreate;
     }
 
