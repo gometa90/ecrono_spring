@@ -1,5 +1,6 @@
 package com.tsystems.ecrono.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +23,7 @@ public class CompetitorController {
     }
 
     @RequestMapping(value = "{id:\\d+}/competitors", method = RequestMethod.GET)
-    public List<Competitor> getRunnersInRace(@PathVariable("id") Long raceId) {
+    public List<Competitor> getRunnersInRace(@PathVariable("id") Long raceId, Principal usuario) {
 
 	return classificationInRaceUserCase.getCompetitorsInRace(raceId);
     }
