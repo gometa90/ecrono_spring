@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Classification</h1>
+	<ul>
+	<li th:each= "c,status : ${nombre1}">
+	<span th:text = "${status.index}"></span>
+	<span th:text="${c.runnerName}"></span>
+	<span></span> 
+	</li>
+	</ul>
+
+</body>
+</html>
